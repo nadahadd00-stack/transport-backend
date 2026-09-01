@@ -37,14 +37,19 @@ public class LivraisonService {
         Livraison livraison = livraisonRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Livraison introuvable"));
 
+
         livraison.setReference(livraisonDetails.getReference());
-        livraison.setClientId(livraisonDetails.getClientId());
-        livraison.setCamionId(livraisonDetails.getCamionId());
-        livraison.setChauffeurId(livraisonDetails.getChauffeurId());
-        livraison.setEntrepotId(livraisonDetails.getEntrepotId());
-        livraison.setDestination(livraisonDetails.getDestination());
-        livraison.setDeliveryDate(livraisonDetails.getDeliveryDate());
+        livraison.setCustomerId(livraisonDetails.getCustomerId());
+        livraison.setTruckId(livraisonDetails.getTruckId());
+        livraison.setDriverId(livraisonDetails.getDriverId());
+        livraison.setWarehouseId(livraisonDetails.getWarehouseId());
+        livraison.setDestinationAddress(livraisonDetails.getDestinationAddress());
+        livraison.setDestinationCity(livraisonDetails.getDestinationCity());
+        livraison.setCargoWeight(livraisonDetails.getCargoWeight());
+        livraison.setDepartureDate(livraisonDetails.getDepartureDate());
+        livraison.setExpectedArrival(livraisonDetails.getExpectedArrival());
         livraison.setStatus(livraisonDetails.getStatus());
+
 
         return livraisonRepository.save(livraison);
     }

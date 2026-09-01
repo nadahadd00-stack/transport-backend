@@ -1,7 +1,9 @@
 package com.tms.transportbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "LIVRAISONS")
@@ -13,17 +15,25 @@ public class Livraison {
 
     private String reference;
 
-    private Long clientId;
+    private Long customerId;
 
-    private Long camionId;
+    private Long truckId;
 
-    private Long chauffeurId;
+    private Long driverId;
 
-    private Long entrepotId;
+    private Long warehouseId;
 
-    private String destination;
+    private String destinationAddress;
 
-    private LocalDate deliveryDate;
+    private String destinationCity;
+
+    private Double cargoWeight;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime departureDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime expectedArrival;
 
     private String status;
 
@@ -46,57 +56,84 @@ public class Livraison {
     }
 
 
-    public Long getClientId() {
-        return clientId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
-    }
-
-
-    public Long getCamionId() {
-        return camionId;
-    }
-
-    public void setCamionId(Long camionId) {
-        this.camionId = camionId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
 
-    public Long getChauffeurId() {
-        return chauffeurId;
+    public Long getTruckId() {
+        return truckId;
     }
 
-    public void setChauffeurId(Long chauffeurId) {
-        this.chauffeurId = chauffeurId;
-    }
-
-
-    public Long getEntrepotId() {
-        return entrepotId;
-    }
-
-    public void setEntrepotId(Long entrepotId) {
-        this.entrepotId = entrepotId;
+    public void setTruckId(Long truckId) {
+        this.truckId = truckId;
     }
 
 
-    public String getDestination() {
-        return destination;
+    public Long getDriverId() {
+        return driverId;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
     }
 
 
-    public LocalDate getDeliveryDate() {
-        return deliveryDate;
+    public Long getWarehouseId() {
+        return warehouseId;
     }
 
-    public void setDeliveryDate(LocalDate deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setWarehouseId(Long warehouseId) {
+        this.warehouseId = warehouseId;
+    }
+
+
+    public String getDestinationAddress() {
+        return destinationAddress;
+    }
+
+    public void setDestinationAddress(String destinationAddress) {
+        this.destinationAddress = destinationAddress;
+    }
+
+
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+
+    public Double getCargoWeight() {
+        return cargoWeight;
+    }
+
+    public void setCargoWeight(Double cargoWeight) {
+        this.cargoWeight = cargoWeight;
+    }
+
+
+    public LocalDateTime getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDateTime departureDate) {
+        this.departureDate = departureDate;
+    }
+
+
+    public LocalDateTime getExpectedArrival() {
+        return expectedArrival;
+    }
+
+    public void setExpectedArrival(LocalDateTime expectedArrival) {
+        this.expectedArrival = expectedArrival;
     }
 
 

@@ -18,14 +18,12 @@ public class LivraisonController {
     }
 
 
-    // GET ALL LIVRAISONS
     @GetMapping
     public List<Livraison> getAllLivraisons() {
         return livraisonService.getAllLivraisons();
     }
 
 
-    // GET LIVRAISON BY ID
     @GetMapping("/{id}")
     public Livraison getLivraisonById(@PathVariable Long id) {
         return livraisonService.getLivraisonById(id)
@@ -33,14 +31,12 @@ public class LivraisonController {
     }
 
 
-    // CREATE LIVRAISON
     @PostMapping
     public Livraison createLivraison(@RequestBody Livraison livraison) {
         return livraisonService.createLivraison(livraison);
     }
 
 
-    // UPDATE LIVRAISON
     @PutMapping("/{id}")
     public Livraison updateLivraison(
             @PathVariable Long id,
@@ -50,7 +46,6 @@ public class LivraisonController {
     }
 
 
-    // DELETE LIVRAISON
     @DeleteMapping("/{id}")
     public String deleteLivraison(@PathVariable Long id) {
 
