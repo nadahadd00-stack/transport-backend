@@ -10,17 +10,17 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String name;
+    private String companyName;
 
-    private String email;
+    private String contactName;
 
     private String phone;
+
+    private String email;
 
     private String address;
 
     private String city;
-
-    private String status;
 
 
     public Long getId() {
@@ -32,21 +32,21 @@ public class Client {
     }
 
 
-    public String getName() {
-        return name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
 
-    public String getEmail() {
-        return email;
+    public String getContactName() {
+        return contactName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 
 
@@ -56,6 +56,15 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
@@ -74,14 +83,5 @@ public class Client {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

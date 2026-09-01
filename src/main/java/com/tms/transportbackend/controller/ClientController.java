@@ -18,14 +18,12 @@ public class ClientController {
     }
 
 
-    // GET ALL CLIENTS
     @GetMapping
     public List<Client> getAllClients() {
         return clientService.getAllClients();
     }
 
 
-    // GET CLIENT BY ID
     @GetMapping("/{id}")
     public Client getClientById(@PathVariable Long id) {
         return clientService.getClientById(id)
@@ -33,14 +31,12 @@ public class ClientController {
     }
 
 
-    // CREATE CLIENT
     @PostMapping
     public Client createClient(@RequestBody Client client) {
         return clientService.createClient(client);
     }
 
 
-    // UPDATE CLIENT
     @PutMapping("/{id}")
     public Client updateClient(
             @PathVariable Long id,
@@ -50,7 +46,6 @@ public class ClientController {
     }
 
 
-    // DELETE CLIENT
     @DeleteMapping("/{id}")
     public String deleteClient(@PathVariable Long id) {
 

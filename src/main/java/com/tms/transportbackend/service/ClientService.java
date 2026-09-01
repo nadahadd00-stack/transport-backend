@@ -37,12 +37,14 @@ public class ClientService {
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client introuvable"));
 
-        client.setName(clientDetails.getName());
-        client.setEmail(clientDetails.getEmail());
+
+        client.setCompanyName(clientDetails.getCompanyName());
+        client.setContactName(clientDetails.getContactName());
         client.setPhone(clientDetails.getPhone());
+        client.setEmail(clientDetails.getEmail());
         client.setAddress(clientDetails.getAddress());
         client.setCity(clientDetails.getCity());
-        client.setStatus(clientDetails.getStatus());
+
 
         return clientRepository.save(client);
     }
