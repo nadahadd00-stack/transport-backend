@@ -17,26 +17,26 @@ public class ChauffeurController {
         this.chauffeurService = chauffeurService;
     }
 
-    // GET ALL CHAUFFEURS
+
     @GetMapping
     public List<Chauffeur> getAllChauffeurs() {
         return chauffeurService.getAllChauffeurs();
     }
 
-    // GET CHAUFFEUR BY ID
+
     @GetMapping("/{id}")
     public Chauffeur getChauffeurById(@PathVariable Long id) {
         return chauffeurService.getChauffeurById(id)
                 .orElseThrow(() -> new RuntimeException("Chauffeur introuvable"));
     }
 
-    // CREATE CHAUFFEUR
+
     @PostMapping
     public Chauffeur createChauffeur(@RequestBody Chauffeur chauffeur) {
         return chauffeurService.createChauffeur(chauffeur);
     }
 
-    // UPDATE CHAUFFEUR
+
     @PutMapping("/{id}")
     public Chauffeur updateChauffeur(
             @PathVariable Long id,
@@ -45,7 +45,7 @@ public class ChauffeurController {
         return chauffeurService.updateChauffeur(id, chauffeur);
     }
 
-    // DELETE CHAUFFEUR
+
     @DeleteMapping("/{id}")
     public String deleteChauffeur(@PathVariable Long id) {
 

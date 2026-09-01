@@ -1,7 +1,8 @@
 package com.tms.transportbackend.entity;
 
-import com.tms.transportbackend.enums.ChauffeurStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "CHAUFFEURS")
@@ -11,20 +12,22 @@ public class Chauffeur {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String fullName;
+    private String firstName;
 
-    private String cin;
+    private String lastName;
 
     private String phone;
 
+    private String email;
+
     private String licenseNumber;
 
-    private String category;
+   @JsonFormat(pattern = "yyyy-MM-dd")
+private LocalDate hireDate; 
 
-    private Integer experience;
+    private Long truckId;
 
-    @Enumerated(EnumType.STRING)
-    private ChauffeurStatus status;
+    private String status;
 
 
     public Long getId() {
@@ -35,21 +38,24 @@ public class Chauffeur {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCin() {
-        return cin;
+
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCin(String cin) {
-        this.cin = cin;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
+
 
     public String getPhone() {
         return phone;
@@ -59,6 +65,16 @@ public class Chauffeur {
         this.phone = phone;
     }
 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
     public String getLicenseNumber() {
         return licenseNumber;
     }
@@ -67,27 +83,30 @@ public class Chauffeur {
         this.licenseNumber = licenseNumber;
     }
 
-    public String getCategory() {
-        return category;
+
+    public LocalDate getHireDate() {
+        return hireDate;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
     }
 
-    public Integer getExperience() {
-        return experience;
+
+    public Long getTruckId() {
+        return truckId;
     }
 
-    public void setExperience(Integer experience) {
-        this.experience = experience;
+    public void setTruckId(Long truckId) {
+        this.truckId = truckId;
     }
 
-    public ChauffeurStatus getStatus() {
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(ChauffeurStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

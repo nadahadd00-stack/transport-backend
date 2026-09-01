@@ -16,33 +16,41 @@ public class ChauffeurService {
         this.chauffeurRepository = chauffeurRepository;
     }
 
+
     public List<Chauffeur> getAllChauffeurs() {
         return chauffeurRepository.findAll();
     }
+
 
     public Optional<Chauffeur> getChauffeurById(Long id) {
         return chauffeurRepository.findById(id);
     }
 
+
     public Chauffeur createChauffeur(Chauffeur chauffeur) {
         return chauffeurRepository.save(chauffeur);
     }
+
 
     public Chauffeur updateChauffeur(Long id, Chauffeur chauffeurDetails) {
 
         Chauffeur chauffeur = chauffeurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Chauffeur introuvable"));
 
-        chauffeur.setFullName(chauffeurDetails.getFullName());
-        chauffeur.setCin(chauffeurDetails.getCin());
+
+        chauffeur.setFirstName(chauffeurDetails.getFirstName());
+        chauffeur.setLastName(chauffeurDetails.getLastName());
         chauffeur.setPhone(chauffeurDetails.getPhone());
+        chauffeur.setEmail(chauffeurDetails.getEmail());
         chauffeur.setLicenseNumber(chauffeurDetails.getLicenseNumber());
-        chauffeur.setCategory(chauffeurDetails.getCategory());
-        chauffeur.setExperience(chauffeurDetails.getExperience());
+        chauffeur.setHireDate(chauffeurDetails.getHireDate());
+        chauffeur.setTruckId(chauffeurDetails.getTruckId());
         chauffeur.setStatus(chauffeurDetails.getStatus());
+
 
         return chauffeurRepository.save(chauffeur);
     }
+
 
     public void deleteChauffeur(Long id) {
         chauffeurRepository.deleteById(id);
