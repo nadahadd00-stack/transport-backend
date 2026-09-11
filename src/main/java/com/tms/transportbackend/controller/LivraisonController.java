@@ -31,11 +31,15 @@ public class LivraisonController {
     }
 
 
-    @PostMapping
-    public Livraison createLivraison(@RequestBody Livraison livraison) {
-        return livraisonService.createLivraison(livraison);
-    }
+  @PostMapping
+public Livraison createLivraison(@RequestBody Livraison livraison) {
 
+    System.out.println("REFERENCE: " + livraison.getReference());
+    System.out.println("CUSTOMER: " + livraison.getCustomerId());
+    System.out.println("DEPART: " + livraison.getDepartureDate());
+
+    return livraisonService.createLivraison(livraison);
+}
 
     @PutMapping("/{id}")
     public Livraison updateLivraison(

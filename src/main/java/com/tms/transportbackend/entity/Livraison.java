@@ -29,11 +29,11 @@ public class Livraison {
 
     private Double cargoWeight;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime departureDate;
+   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+private LocalDateTime departureDate;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime expectedArrival;
+@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+private LocalDateTime expectedArrival;
 
     private String status;
 
